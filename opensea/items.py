@@ -3,10 +3,25 @@
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/items.html
 
-import scrapy
+from scrapy.item import Item, Field
 
 
-class OpenseaItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class NFT(Item):
+    # all from open sea
+    os_id = Field()
+    token_id = Field()
+    name = Field()
+    description = Field()
+    image_url = Field()
+    image_original_url = Field()
+    animation_original_url = Field()
+    external_link = Field()
+    permalink = Field()
+    collection_slug = Field()
+    creator = Field()
+    latest_sale_usd = Field()
+    # social
+    instagram_follower = Field()
+    twitter_follower = Field()
+    medium_follower = Field()
+
