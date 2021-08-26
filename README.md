@@ -1,1 +1,1 @@
-# opensea nft scrapper
+# opensea nft scraper
