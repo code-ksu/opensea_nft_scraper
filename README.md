@@ -1,1 +1,1 @@
-# open_sea_nft
+# opensea_nft
