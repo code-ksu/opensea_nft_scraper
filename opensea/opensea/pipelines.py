@@ -8,6 +8,6 @@
 from itemadapter import ItemAdapter
 
 
-class OpeanSeaNftPipeline:
+class OpenseaPipeline:
     def process_item(self, item, spider):
         return item

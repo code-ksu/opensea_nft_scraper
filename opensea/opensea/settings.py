@@ -1,4 +1,4 @@
-# Scrapy settings for opean_sea_nft project
+# Scrapy settings for opensea project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'opean_sea_nft'
+BOT_NAME = 'opensea'
 
-SPIDER_MODULES = ['opean_sea_nft.spiders']
-NEWSPIDER_MODULE = 'opean_sea_nft.spiders'
+SPIDER_MODULES = ['opensea.spiders']
+NEWSPIDER_MODULE = 'opensea.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'opean_sea_nft (+http://www.yourdomain.com)'
+#USER_AGENT = 'opensea (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -45,13 +45,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'opean_sea_nft.middlewares.OpeanSeaNftSpiderMiddleware': 543,
+#    'opensea.middlewares.OpenseaSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'opean_sea_nft.middlewares.OpeanSeaNftDownloaderMiddleware': 543,
+#    'opensea.middlewares.OpenseaDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -63,7 +63,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'opean_sea_nft.pipelines.OpeanSeaNftPipeline': 300,
+#    'opensea.pipelines.OpenseaPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)

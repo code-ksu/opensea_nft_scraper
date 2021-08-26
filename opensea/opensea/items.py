@@ -6,7 +6,7 @@
 import scrapy
 
 
-class OpeanSeaNftItem(scrapy.Item):
+class OpenseaItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     pass
