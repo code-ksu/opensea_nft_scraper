@@ -2,7 +2,7 @@ import scrapy
 import urllib
 import json
 import math
-from opensea.items import NFT
+from ..items import NFT
 
 
 class OsCollectionSpider(scrapy.Spider):
@@ -12,7 +12,7 @@ class OsCollectionSpider(scrapy.Spider):
     page_limit = 50
 
     def start_requests(self):
-        return self.parse_os_assets(self, offset=0 - self.page_limit)
+        return self.parse_os_assets(offset=0 - self.page_limit)
 
     def parse_os_assets(self, response = None, offset = 0, collection = 'art-blocks'):
         hasNext = True
@@ -20,10 +20,10 @@ class OsCollectionSpider(scrapy.Spider):
             assets = json.load(response.body).assets
             hasNext = len(assets) == self.page_limit
             for asset in assets:
-                yield self.parse_os_asset(self, response, asset)
+                yield self.parse_os_asset(response, asset)
 
         if (hasNext):
-            url = "https://api.opensea.io/api/v1/assets"
+            url = "https://api.opensea.io/api/v1/assets?"
             data = {
                 "order_direction": "desc",
                 "offset": offset,
@@ -64,7 +64,8 @@ class OsCollectionSpider(scrapy.Spider):
         )
         # TODO: follow website
         # TODO: parse follower
-        pass
+        
+        return nft
 
     def unexpected_response(self, response):
         page = response.url.split("/")[-2]
