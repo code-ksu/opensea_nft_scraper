@@ -20,6 +20,7 @@ class NFT(Item):
     collection_slug = Field()
     creator = Field()
     latest_sale_usd = Field()
+    sell_order_usd = Field()
     # social
     instagram_follower = Field()
     twitter_follower = Field()
