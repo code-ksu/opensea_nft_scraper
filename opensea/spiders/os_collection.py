@@ -16,13 +16,17 @@ class OsCollectionSpider(scrapy.Spider):
 
     def parse_os_assets(self, response = None, offset = 0, collection = 'art-blocks'):
         hasNext = True
+
+        # skip first
         if (response != None):
             json_content = response.json()
             assets = json_content['assets']
+            # stop when less than limit
             hasNext = len(assets) == self.page_limit
             for asset in assets:
                 yield self.parse_os_asset(response, asset)
-
+ 
+        #comes here and makes a request
         if (hasNext):
             url = "https://api.opensea.io/api/v1/assets?"
             data = {
