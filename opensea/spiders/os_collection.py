@@ -62,7 +62,7 @@ class OsCollectionSpider(scrapy.Spider):
             external_link = os_item['external_link'],
             permalink = os_item['permalink'],
             collection_slug = os_item['collection']['slug'],
-            creator = os_item['creator']['user']['username'],
+            creator = creator,
             latest_sale_usd = latest_price,
             sell_order_usd = sell_order_usd,
         )
