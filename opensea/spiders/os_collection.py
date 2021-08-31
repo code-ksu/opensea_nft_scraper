@@ -47,6 +47,9 @@ class OsCollectionSpider(scrapy.Spider):
         # calculate the USD price
         latest_price = self.calc_price_sale(os_item['last_sale'])
         sell_order_usd = self.calc_price_order(os_item['sell_orders'])
+        creator = os_item['creator']['address']
+        if (os_item['creator']['user'] != None and os_item['creator']['user']['username'] != None):
+            creator = os_item['creator']['user']['username']
 
         nft = NFT(
             os_id = os_item['id'],
