@@ -20,13 +20,17 @@ class OsCollectionSpider(scrapy.Spider):
 
     def get_assets(self, response = None, offset = 0, collection = 'art-blocks-factory'):
         hasNext = True
+        
+        # skip first
         if (response != None):
             json_content = response.json()
             assets = json_content['assets']
+            # stop when less than limit
             hasNext = len(assets) == self.page_limit
             for asset in assets:
                 yield self.get_asset_details(asset)
 
+        #makes a request to next page
         if (hasNext):
             url = "https://api.opensea.io/api/v1/assets?"
             data = {
@@ -217,7 +221,7 @@ class OsCollectionSpider(scrapy.Spider):
             filename = 'noext.png'
 
         path = Path(getcwd())
-        filename = path.joinpath('data', subfolder, f'{os_id}_{filename}')
+        filename = path.joinpath('..', 'data', subfolder, f'{os_id}_{filename}')
         r = requests.get(url)
         with open(filename,'wb') as output_file:
             output_file.write(r.content)
@@ -229,7 +233,7 @@ class OsCollectionSpider(scrapy.Spider):
 
     def unexpected_response(self, response):
         page = response.url.split("/")[-2]
-        filename = Path().joinpath('data', f'error-{page}.html')
+        filename = Path().joinpath('..', 'data', f'error-{page}.html')
         with open(filename, 'wb') as f:
             f.write(response.body)
         self.log(f'Saved error page {response.url} to {filename}')
