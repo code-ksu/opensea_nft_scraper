@@ -2,3 +2,9 @@ __pycache__
 **/__pycache__/
 opensea/__pycache__/
 opensea/spiders/__pycache__/
+
+data/*.json
+data/img/*.png
+data/preview/*.png
+data/img/*.jpg
+data/preview/*.jpg
